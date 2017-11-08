@@ -8,7 +8,6 @@ local_settings.py
 .env
 db.sqlite3
 /blog
-blog/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
