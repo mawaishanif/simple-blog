@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class Categories(models.Model):
@@ -13,9 +14,9 @@ class Categories(models.Model):
 class Post(models.Model):
     post_title = models.CharField(max_length=200, blank=False)
     post_content = models.TextField(blank=True)
-    post_url = models.CharField(max_length=250, blank=False)
+    post_url = models.CharField(max_length=250)
     # Many to many field to categories.
-    post_category = models.ManyToManyField(Categories)
+    post_category = models.ManyToManyField(Categories, blank=True)
 
     def __str__(self):
         return self.post_title
