@@ -5,9 +5,11 @@
 __pycache__/
 local_settings.py
 
+# Migrations
+migrations/
+
 .env
 db.sqlite3
-/blog
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -17,5 +19,9 @@ __pycache__/
 # C extensions
 *.so
 
+<<<<<<< HEAD
 # IDE
+=======
+# Visual Studio Code
+>>>>>>> development
 .vscode/
