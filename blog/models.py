@@ -8,7 +8,7 @@ class Categorie(models.Model):
     desc = models.TextField(blank=True)
 
     def __str__(self):
-        return self.category_name
+        return self.name
 
     def save(self, *args, **kwargs):
         '''
@@ -22,12 +22,14 @@ class Post(models.Model):
     title = models.CharField(max_length=200, blank=False)
     content = models.TextField(blank=True)
     url = models.SlugField(max_length=250, unique=True)
+    creation_date = models.DateField(auto_now_add=True)
+    last_update = models.DateField(auto_now=True)
 
     # Many to many field to categories.
     category = models.ManyToManyField(Categorie, blank=True)
 
     def __str__(self):
-        return self.post_title
+        return self.title
 
     def save(self, *args, **kwargs):
         '''
