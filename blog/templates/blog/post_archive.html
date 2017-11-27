@@ -1,0 +1,5 @@
+<ul>
+    {% for post in latest %}
+        <li>{{ post.title }} ({{post.creation_date}}) </li>
+    {% endfor %}
+</ul>
