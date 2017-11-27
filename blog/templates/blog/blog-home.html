@@ -1,0 +1,9 @@
+<ul>
+    {% for post in latest_articles %}
+    <li> {{ post.title }} <br> {{ post.content }} </li>
+    <span>Category : {{post.categorie.name }},  Posted on {{ post.creation_date }}</span>
+    {{ post.user }}
+    <br><br>
+    {% endfor %}
+</ul>
+{{ debug }}
