@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
+from django.views.generic.detail import DetailView
 from .models import Post
 from django.views.generic.dates import YearArchiveView
 
@@ -20,3 +21,15 @@ class PostYearArchiveView(YearArchiveView):
     queryset = Post.objects.all()
     date_field = "creation_date"
     make_object_list = True
+
+
+class BlogPostView(DetailView):
+    template_name = 'blog/post.html'
+    model = Post
+
+    def get_object(self):
+        return 'lets see'
+
+    def get_context_data(self, **kwargs):
+        super(BlogPostView, self).get_context_data(**kwargs)
+        print(self.request.path)
