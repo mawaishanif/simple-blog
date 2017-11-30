@@ -25,11 +25,11 @@ class PostYearArchiveView(YearArchiveView):
 
 class BlogPostView(DetailView):
     template_name = 'blog/post.html'
+    slug_field = 'url'
     model = Post
 
-    def get_object(self):
-        return 'lets see'
-
-    def get_context_data(self, **kwargs):
-        super(BlogPostView, self).get_context_data(**kwargs)
-        print(self.request.path)
+    def get_object(self, **kwargs):
+        object = {}
+        object['post'] = super(BlogPostView, self).get_object(**kwargs)
+        object['category'] = object['post'].category.all()[0]
+        return object
